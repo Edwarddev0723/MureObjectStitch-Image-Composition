@@ -71,7 +71,7 @@ model:
     cond_stage_config:
       target: ldm.modules.encoders.modules.FrozenCLIPImageEmbedder
       params:
-        version: /data/chenjiaxuan/project/ObjectStitch-Image-Composition/checkpoints/openai-clip-vit-large-patch14
+        version: ./checkpoints/openai-clip-vit-large-patch14
 data:
   target: ldm.data.datamodule.DataModuleFromConfig
   dataset_dir: &dataset_dir /data/chenjiaxuan/data/
@@ -84,7 +84,7 @@ data:
           params:
               split: train
               image_size: 512
-              instance_data_root: /data/chenjiaxuan/project/MureObjectStitch-Image-Composition/finetuning_examples
+              instance_data_root: ./finetuning_examples
               image_num: 5
       validation:
           target: ldm.data.open_images.COCOEEDataset

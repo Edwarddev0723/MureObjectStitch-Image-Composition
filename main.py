@@ -139,7 +139,7 @@ def get_parser(**parser_kwargs):
     parser.add_argument(
         "--pretrained_model",
         type=str,
-        default='/data/chenjiaxuan/project/ObjectStitch-Image-Composition/checkpoints/ObjectStitch.pth',
+        default='checkpoints/ObjectStitch.pth',
         help="path to pretrained model",
     )
     parser.add_argument(
