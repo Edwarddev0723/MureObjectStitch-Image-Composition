@@ -494,11 +494,10 @@ class OpenImageDataset(data.Dataset):
     def __len__(self):
         return self.length
 
+#修改為我們自己的
 class MureComDataset(data.Dataset):
     def __init__(self,**args):
-        self.package_name = args['package_name']
-        self.fg_name = args['fg_name']
-        self.instance_data_root = os.path.join(args['instance_data_root'], self.package_name, self.fg_name)
+        self.instance_data_root = args['instance_data_root']
         if not os.path.exists(self.instance_data_root):
             print(self.instance_data_root)
             raise ValueError("Instance images root doesn't exists.")

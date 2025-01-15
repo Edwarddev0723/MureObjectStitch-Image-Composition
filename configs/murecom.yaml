@@ -84,20 +84,22 @@ data:
           params:
               split: train
               image_size: 512
-              instance_data_root: ./finetuning_examples
+              instance_data_root: ./finetuning_examples/Car/fg1
               image_num: 5
       validation:
-          target: ldm.data.open_images.COCOEEDataset
+          target: ldm.data.open_images.MureComDataset
           params:
-              split: test
-              dataset_dir: $path-to-cocoee$
+              split: train
               image_size: 512
+              instance_data_root: ./finetuning_examples/Car/fg2
+              image_num: 5
       test:
-          target: ldm.data.open_images.OpenImageDataset
+          target: ldm.data.open_images.MureComDataset
           params:
-              split: validation
-              dataset_dir: *dataset_dir
+              split: train
               image_size: 512
+              instance_data_root: ./finetuning_examples/Car/fg3
+              image_num: 5
 
 lightning:
   trainer:
