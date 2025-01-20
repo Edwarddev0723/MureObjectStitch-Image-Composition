@@ -490,10 +490,7 @@ if __name__ == "__main__":
             model.load_state_dict(ckpt_file, strict=False)
             print("Train from scratch!")
             
-            #add DataParallel
-            device_ids = [0, 1]
-            model = torch.nn.DataParallel(model, device_ids=device_ids)
-            print('DataParallel 成功')
+            
         else:
             model.load_state_dict(torch.load(
                 config.model.pretrained_model, map_location='cpu')['state_dict'], strict=False)
@@ -501,6 +498,11 @@ if __name__ == "__main__":
 
     # trainer and callbacks
     trainer_kwargs = dict()
+
+    #add DataParallel
+    device_ids = [0, 1]
+    model = torch.nn.DataParallel(model, device_ids=device_ids)
+    print('DataParallel 成功')
 
     # default logger configs
     default_logger_cfgs = {
