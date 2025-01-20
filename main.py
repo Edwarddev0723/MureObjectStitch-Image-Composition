@@ -489,6 +489,10 @@ if __name__ == "__main__":
                          value in ckpt_file.items() if not (key[:6] == 'model.')}
             model.load_state_dict(ckpt_file, strict=False)
             print("Train from scratch!")
+            
+            #add DataParallel
+            device_ids = [0, 1]
+            model = torch.nn.DataParallel(model, device_ids=device_ids)
         else:
             model.load_state_dict(torch.load(
                 config.model.pretrained_model, map_location='cpu')['state_dict'], strict=False)
