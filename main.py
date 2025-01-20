@@ -496,14 +496,12 @@ if __name__ == "__main__":
                 config.model.pretrained_model, map_location='cpu')['state_dict'], strict=False)
             print("Load ", config.model.pretrained_model)
 
+
     # trainer and callbacks
     trainer_kwargs = dict()
 
-    #add DataParallel
-    device_ids = [0, 1]
-    model = torch.nn.DataParallel(model, device_ids=device_ids)
-    print('DataParallel 成功')
-
+    model = torch.nn.DataParallel(model)
+    
     # default logger configs
     default_logger_cfgs = {
         "wandb": {
