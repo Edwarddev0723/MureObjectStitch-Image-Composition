@@ -632,7 +632,7 @@ if __name__ == "__main__":
     trainer_kwargs["callbacks"] = [instantiate_from_config(
         callbacks_cfg[k]) for k in callbacks_cfg]
     trainer_kwargs["strategy"] = DDPStrategy(find_unused_parameters=True)
-    trainer_kwargs["devices"] = [0, 1]
+    trainer_kwargs["devices"] = [0, 1, 2, 3]
 
     trainer = Trainer.from_argparse_args(trainer_opt, **trainer_kwargs)
 
