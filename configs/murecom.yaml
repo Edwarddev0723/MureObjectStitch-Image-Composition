@@ -84,21 +84,21 @@ data:
           params:
               split: train
               image_size: 512
-              instance_data_root: ./finetuning_examples/Car/fg1
+              instance_data_root: ./finetuning_examples/Bottle/fg1
               image_num: 5
       validation:
           target: ldm.data.open_images.MureComDataset
           params:
               split: train
               image_size: 512
-              instance_data_root: ./finetuning_examples/Car/fg2
+              instance_data_root: ./finetuning_examples/Bottle/fg2
               image_num: 5
       test:
           target: ldm.data.open_images.MureComDataset
           params:
               split: train
               image_size: 512
-              instance_data_root: ./finetuning_examples/Car/fg3
+              instance_data_root: .finetuning_examples/Bottle/fg3
               image_num: 5
 
 lightning:
